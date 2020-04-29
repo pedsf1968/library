@@ -1,0 +1,9 @@
+docker push pedsf1968/config-server:1.0
+docker push pedsf1968/eureka-server:1.0
+docker push pedsf1968/zuul-server:1.0
+docker push pedsf1968/media-api:1.0
+docker push pedsf1968/mail-api:1.0
+docker push pedsf1968/user-api:1.0
+docker push pedsf1968/library-api:1.0
+docker push pedsf1968/batch:1.0
+docker push pedsf1968/web-api:1.0

@@ -1,0 +1,180 @@
+version: "3.7"
+
+services:
+  config:
+    container_name: config-server
+    image: pedsf1968/config-server:1.0
+    restart: unless-stopped
+    environment:
+      - jasypt.encryptor.password=${JASYPT_ENCRYPTOR_SECRET}
+    ports:
+      - "2000:2000"
+    networks:
+      net:
+        ipv4_address: 10.5.0.2
+
+  eureka:
+    container_name: eureka-server
+    image: pedsf1968/eureka-server:1.0
+    restart: unless-stopped
+    environment:
+      - jasypt.encryptor.password=${JASYPT_ENCRYPTOR_SECRET}
+#     - spring.cloud.config.uri=http://10.5.0.2:2000
+    depends_on:
+      - "config"
+    ports:
+      - "2100:2100"
+    networks:
+      net:
+        ipv4_address: 10.5.0.3
+
+  zuul:
+    container_name: zuul-server
+    image: pedsf1968/zuul-server:1.0
+    restart: unless-stopped
+    environment:
+      - jasypt.encryptor.password=${JASYPT_ENCRYPTOR_SECRET}
+#     - spring.cloud.config.uri=http://10.5.0.2:2000
+    depends_on:
+      - "eureka"
+    ports:
+      - "2200:2200"
+    networks:
+      net:
+        ipv4_address: 10.5.0.4
+
+  db:
+    container_name: library-db
+    image: postgres:alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${LIBRARY_DB_LOGIN}
+      POSTGRES_PASSWORD: ${LIBRARY_DB_PASSWORD}
+      POSTGRES_DB: library
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      net:
+        ipv4_address: 10.5.0.5
+
+
+  media:
+    container_name: media-api
+    image: pedsf1968/media-api:1.0
+    restart: on-failure
+    environment:
+      - jasypt.encryptor.password=${JASYPT_ENCRYPTOR_SECRET}
+#     - spring.cloud.config.uri=http://10.5.0.2:2000
+#   volumes:
+#     - //f/images/library:/images
+    depends_on:
+      - "config"
+      - "zuul"
+    ports:
+      - "4000:4000"
+    networks:
+      net:
+        ipv4_address: 10.5.0.6
+
+  mail:
+    container_name: mail-api
+    image: pedsf1968/mail-api:1.0
+    restart: on-failure
+    environment:
+      - jasypt.encryptor.password=${JASYPT_ENCRYPTOR_SECRET}
+#      - spring.cloud.config.uri=http://10.5.0.2:2000
+    depends_on:
+      - "config"
+      - "batch"
+    ports:
+      - "5000:5000"
+    networks:
+      net:
+        ipv4_address: 10.5.0.7
+
+  user:
+    container_name: user-api
+    image: pedsf1968/user-api:1.0
+    restart: on-failure
+    environment:
+      - jasypt.encryptor.password=${JASYPT_ENCRYPTOR_SECRET}
+#     - spring.cloud.config.uri=http://10.5.0.2:2000
+#     - spring.datasource.url=jdbc:postgresql://10.5.0.5:5432/library
+    depends_on:
+      - "config"
+      - "db"
+    ports:
+      - "7000:7000"
+    networks:
+      net:
+        ipv4_address: 10.5.0.8
+
+  library:
+    container_name: library-api
+    image: pedsf1968/library-api:1.0
+    restart: on-failure
+    environment:
+      - jasypt.encryptor.password=${JASYPT_ENCRYPTOR_SECRET}
+#     - spring.cloud.config.uri=http://10.5.0.2:2000
+#     - spring.datasource.url=jdbc:postgresql://10.5.0.5:5432/library
+    #volumes:
+    #  - //f/images/library:/images
+    depends_on:
+      - "config"
+      - "db"
+      - "user"
+    ports:
+      - "8000:8000"
+    networks:
+      net:
+        ipv4_address: 10.5.0.9
+
+  batch:
+    container_name: batch
+    image: pedsf1968/batch:1.0
+    restart: on-failure
+    environment:
+      - jasypt.encryptor.password=${JASYPT_ENCRYPTOR_SECRET}
+#     - spring.cloud.config.uri=http://10.5.0.2:2000
+    depends_on:
+      - "config"
+      - "library"
+    ports:
+      - "6000:6000"
+    networks:
+      net:
+        ipv4_address: 10.5.0.10
+
+  web:
+    container_name: web-api
+    image: pedsf1968/web-api:1.0
+    restart: on-failure
+    environment:
+      - jasypt.encryptor.password=${JASYPT_ENCRYPTOR_SECRET}
+#     - spring.cloud.config.uri=http://10.5.0.2:2000
+#   volumes:
+#     - //f/images/library:/images
+    depends_on:
+      - "config"
+      - "media"
+      - "user"
+      - "library"
+    ports:
+      - "9000:9000"
+    networks:
+      net:
+        ipv4_address: 10.5.0.11
+
+volumes:
+  pgdata:
+
+networks:
+  net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.5.0.0/16
+

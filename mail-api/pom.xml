@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- ==================================================================== -->
+	<!-- 									                       PROJECT INFORMATIONS -->
+	<!-- ==================================================================== -->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.2.6.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+	<!-- ================================================= MAVEN INFORMATIONS -->
+	<groupId>com.library</groupId>
+	<artifactId>mail-api</artifactId>
+	<version>1.0.RELEASE</version>
+	<name>mail-api</name>
+	<description>Mail management with Kafka consumer and REST controller</description>
+
+	<!-- =========================================================== LICENCES -->
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+		</license>
+		<license>
+			<name>The MIT License</name>
+			<url>https://projectlombok.org/LICENSE</url>
+		</license>
+	</licenses>
+
+	<!-- ==================================================================== -->
+	<!--                                                           PROPERTIES -->
+	<!-- ==================================================================== -->
+	<properties>
+		<commons-io.version>2.6</commons-io.version>
+		<jackson-databind.version>2.11.0.rc1</jackson-databind.version>
+		<jasypt-spring-boot-starter.version>2.0.0</jasypt-spring-boot-starter.version>
+		<java.version>1.8</java.version>
+		<junit-jupiter-engine.version>5.6.0</junit-jupiter-engine.version>
+		<lombok.version>1.18.12</lombok.version>
+		<spring-boot-admin.version>2.2.1</spring-boot-admin.version>
+		<spring-cloud.version>Hoxton.SR3</spring-cloud.version>
+		<springboot-starter.version>2.2.6.RELEASE</springboot-starter.version>
+		<springdoc-openapi-ui.version>1.2.34</springdoc-openapi-ui.version>
+		<swagger.version>2.1.1</swagger.version>
+	</properties>
+
+	<!-- ==================================================================== -->
+	<!--                                                         DEPENDENCIES -->
+	<!-- ==================================================================== -->
+	<dependencies>
+	<!-- =========================================================== ACTUATOR -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
+		<!-- ========================================================== CLIENT -->
+		<dependency>
+			<groupId>de.codecentric</groupId>
+			<artifactId>spring-boot-admin-starter-client</artifactId>
+		</dependency>
+
+		<!-- ========================================================== CONFIG -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+
+		<!-- ========================================================= DEVTOOL -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<!-- ========================================================== EUREKA -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+
+		<!-- ========================================================= JACKSON -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson-databind.version}</version>
+		</dependency>
+
+		<!-- ========================================================== JASYPT -->
+		<dependency>
+			<groupId>com.github.ulisesbocchio</groupId>
+			<artifactId>jasypt-spring-boot-starter</artifactId>
+			<version>${jasypt-spring-boot-starter.version}</version>
+		</dependency>
+
+		<!-- =========================================================== KAFKA -->
+		<dependency>
+			<groupId>org.springframework.kafka</groupId>
+			<artifactId>spring-kafka</artifactId>
+		</dependency>
+
+		<!-- ========================================================== LOMBOK -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+			<optional>true</optional>
+		</dependency>
+
+		<!-- ============================================================ MAIL -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mail</artifactId>
+			<version>${springboot-starter.version}</version>
+		</dependency>
+
+		<!-- ========================================================= OPENAPI -->
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-ui</artifactId>
+			<version>${springdoc-openapi-ui.version}</version>
+		</dependency>
+
+		<!-- ======================================================= OPENFEIGN -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+		</dependency>
+
+		<!-- =========================================================== RIBON -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+		</dependency>
+
+		<!-- ========================================================= SWAGGER -->
+		<dependency>
+			<groupId>io.swagger.core.v3</groupId>
+			<artifactId>swagger-annotations</artifactId>
+			<version>${swagger.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- ======================================================= THYMELEAF -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+			<version>${springboot-starter.version}</version>
+		</dependency>
+
+		<!-- ============================================================= WEB -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<!-- ============================================================ TEST -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.cloud</groupId>
+					<artifactId>spring-cloud-config-client</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- ====================================================== KAFKA TEST -->
+		<dependency>
+			<groupId>org.springframework.kafka</groupId>
+			<artifactId>spring-kafka-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- =========================================================== JUNIT -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<!-- ==================================================================== -->
+	<!--                                                DEPENDENCY MANAGEMENT -->
+	<!-- ==================================================================== -->
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>de.codecentric</groupId>
+				<artifactId>spring-boot-admin-dependencies</artifactId>
+				<version>${spring-boot-admin.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<!-- ==================================================================== -->
+	<!--                                                             PROFILES -->
+	<!-- ==================================================================== -->
+	<profiles>
+		<profile>
+			<id>development</id>
+			<properties>
+				<activatedProperties>development</activatedProperties>
+				<configServer>http://localhost:2000</configServer>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>local</id>
+			<properties>
+				<activatedProperties>development</activatedProperties>
+				<configServer>http://localhost:2000</configServer>
+			</properties>
+
+		</profile>
+
+		<profile>
+			<id>docker</id>
+			<properties>
+				<activatedProperties>docker</activatedProperties>
+				<configServer>http://10.5.0.1:2000</configServer>
+			</properties>
+		</profile>
+	</profiles>
+
+	<!-- ==================================================================== -->
+	<!--                                                                BUILD -->
+	<!-- ==================================================================== -->
+	<build>
+		<finalName>mail-api</finalName>
+
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

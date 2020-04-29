@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html lang="fr"  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<body>
+
+<div th:fragment="about">
+   <p>Projet de système d'information de la bibliothèque d'une grande ville.</p>
+   <p>Ce RELEASE est constitué de l'application WEB pour les utilisateurs et d'un batch qui effectue des relances.</p>
+</div>
+
+<div th:fragment="howto">
+   <p>Tout utilisateur peut consulter les différents médias présents dans la bibliothèque.</p>
+   <p>Il y a quatre différents types de média: livre, jeux, musique et vidéo</p>
+   <p>Un utilisateur peut s'inscrire pour devenir membre et emprunter des médias</p>
+   <p>Un membre peut consulter ses emprunt</p>
+   <p>Un membre peut réserver un média pour pouvoir le retirer et l'emprunter</p>
+   <p>Un membre peut prolonger son emprunt quand il arrive a échéance</p>
+   <p>Un mail de relance est envoyé pour chaque retard.</p>
+</div>
+
+<div th:fragment="architecture">
+   <H2>MEDIA</H2>
+   <p>C'est le type générique de ce qui peut être emprunter.</p>
+   <p>Il est caractérisé par :</P>
+   <ul style="list-style-type:disc;">
+      <li>Un code barre</li>
+      <li>Un titre</li>
+      <li>Une date de publication</li>
+      <li>Un stock</li>
+      <li>Une quantité restante</li>
+   </ul>
+   <H2>BOOK</H2>
+   <p>C'est le type dérivé pour gérer les livres.</p>
+   <p>Il est caractérisé en plus par :</P>
+   <ul style="list-style-type:disc;">
+      <li>Un code ISBN</li>
+      <li>Un auteur</li>
+      <li>Un éditeur</li>
+      <li>Un type</li>
+      <li>Un format</li>
+      <li>Un nombre de pages</li>
+      <li>Un résumé</li>
+   </ul>
+   <H2>GAME</H2>
+   <p>C'est le type dérivé pour gérer les jeux.</p>
+   <p>Il est caractérisé en plus par :</P>
+   <ul style="list-style-type:disc;">
+      <li>Un éditeur</li>
+      <li>Un type</li>
+      <li>Un format</li>
+      <li>Le code PEGI</li>
+      <li>Le lien vers une vidéo publicitaire</li>
+      <li>Un résumé</li>
+   </ul>
+   <H2>MUSIC</H2>
+   <p>C'est le type dérivé pour gérer l'audio.</p>
+   <p>Il est caractérisé en plus par :</P>
+   <ul style="list-style-type:disc;">
+      <li>Un auteur</li>
+      <li>Un compositeur</li>
+      <li>Un interprète</li>
+      <li>Une durée en minutes</li>
+      <li>Un type</li>
+      <li>Un format</li>
+      <li>Le lien vers un clip vidéo d'une des chansons</li>
+   </ul>
+   <H2>VIDEO</H2>
+   <p>C'est le type dérivé pour gérer les vidéo.</p>
+   <p>Il est caractérisé en plus par :</P>
+   <ul style="list-style-type:disc;">
+      <li>Un directeur</li>
+      <li>Une durée en minutes</li>
+      <li>Un type</li>
+      <li>Un format</li>
+      <li>La qualité de l'image</li>
+      <li>La qualité de du son</li>
+      <li>Le type d'audience</li>
+      <li>Le lien vers la bande annonce</li>
+      <li>Un résumé</li>
+      <li>La liste des acteurs</li>
+   </ul>
+</div>
+</body>

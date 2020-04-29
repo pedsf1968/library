@@ -1,0 +1,134 @@
+a:hover {
+	color: green;
+}
+
+aside {
+	color: black;
+}
+
+ body {
+    background-color: #DDD;
+    padding-top: 10px;
+    min-height: 100%;
+    background-image:url("/images/simplebg.jpg");
+}
+
+body,html {
+  height: 100%;
+}
+
+.card {
+    display:flex;
+}
+
+.card-text {
+    padding-left : 10px;
+    padding-right : 10px;
+}
+
+[class*="col-"] {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+footer {
+	text-align: center;
+	padding-bottom: 20px;
+	color : white;
+}
+.endpage {
+    margin-bottom: 100px;
+}
+
+footer a {
+	color : white;
+    margin-bottom:20px;
+}
+
+header {
+    margin-top : 50px;
+    padding-left: 20px;
+    text-align: center;
+}
+
+html{
+  height: 100%;
+}
+
+
+img {
+    box-shadow: 5px 5px 5px black;
+}
+
+.img-avatar {
+    height: 50px;
+    width: 50px;
+}
+
+.jumbotron {
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+.navbar {
+    height: 50px;
+}
+
+.navbar-brand {
+  padding: 0 15px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.navbar-toggle {
+  margin-top: 23px;
+  padding: 9px 10px;
+}
+
+nav .navbar-nav li i  {
+    color : white;
+}
+
+nav .navbar-nav li a  {
+    color : white;
+}
+
+nav .navbar-nav li a:hover {
+	color: green;
+}
+
+section {
+	margin-bottom: 20px;
+}
+
+
+.center {
+	text-align: center;
+}
+
+.page {
+  height: 800px;
+}
+
+
+
+@media all and (max-width: 768px) {
+	aside {
+		display: none;
+	}	
+}
+
+@media all and (max-width: 800px) {
+	aside {
+		display: none;
+	}
+	
+	.thumbnail {
+		display: none;
+	}
+}
+
+

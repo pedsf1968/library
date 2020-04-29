@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html lang="en"  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<body>
+<div th:fragment="gamefilter" class="form-row">
+   <form  class="col-md-12" action="#" th:action="@{/games}" th:object="${filter}" method="POST" enctype="utf8">
+      <div class="form-row mx-auto">
+         <div class="col-md-6">
+            <input class="form-control" th:field="${filter.title}" th:placeholder="#{placeholder.title}">
+         </div>
+
+         <div class="col-md-3">
+            <button type="submit" class="form-control btn btn-primary mb-2" th:text="#{label.filter}">Filter</button>
+         </div>
+         <div class="col-md-3">
+            <button type="reset" class="form-control btn btn-primary mb-2" th:text="#{label.reset}">Reset</button>
+         </div>
+
+
+         <div class="col-md-6">
+            <select class="form-control" th:field="${filter.type}">
+               <option th:value="null" th:text="#{label.type}">Type</option>
+               <option th:each="type : ${filterTypes}" th:value="${type}" th:text="${type}"></option>
+            </select>
+         </div>
+
+         <div class="col-md-6">
+            <select class="form-control" th:field="${filter.format}">
+               <option th:value="null" th:text="#{label.format}">Format</option>
+               <option th:each="format : ${filterFormats}" th:value="${format}" th:text="${format}"></option>
+            </select>
+         </div>
+      </div>
+   </form>
+
+</div>
+</body>

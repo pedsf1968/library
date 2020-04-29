@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/head :: head}"></head>
+<body>
+<div class="container-fluid">
+   <nav th:replace="~{fragments/nav :: nav}"></nav>
+
+   <header class="jumbotron">
+      <div class="row">
+         <div class="col-sm">
+            <H1 class="display-4 float-left" th:text="#{title.registration}">Registration</H1>
+         </div>
+         <div class="col-sm my-auto">
+            <button form="formadduser" type="submit" class="btn btn-primary float-right" th:text="#{label.submit}">Submit</button>
+         </div>
+      </div>
+   </header>
+
+      <form class="col-md-6 mx-auto endpage" id="formadduser" action="#" th:action="@{/user/add}"  method="POST" enctype="utf8">
+         <input type="hidden"  th:field="${user.status}">
+         <input type="hidden"  th:field="${user.counter}">
+
+         <div class="card mt-2 mb-2">
+            <div class="card-header">
+               <h5 th:text="#{label.information}">Information</h5>
+               <input type="hidden" th:field="${user.photoLink}">
+            </div>
+            <div class="card-body row">
+               <div class="col-md-4 mb-3">
+                  <label for="firstName" th:text="#{label.firstName}">First name</label>
+                  <input id="firstName" type="text" th:field="${user.firstName}" class="form-control" th:placeholder="#{placeholder.firstName}">
+                  <span th:if="${#fields.hasErrors('user.firstName')}" th:errors="${user.firstName}">Must have name</span>
+               </div>
+               <div class="col-md-4 mb-3">
+                  <label for="lastName" th:text="#{label.lastName}">Last name</label>
+                  <input id="lastName" type="text" th:field="${user.lastName}" class="form-control" th:placeholder="#{placeholder.lastName}">
+                  <div th:each="error : ${#fields.errors('user.lastName')}" th:error="${user.lastName}" th:text="${error}"></div>
+               </div>
+               <div class="col-md-4 mb-3">
+                  <label for="phone" th:text="#{label.phone}">Phone</label>
+                  <input id="phone" type="text" th:field="${user.phone}" class="form-control" th:placeholder="#{placeholder.phone}">
+                  <div th:each="error : ${#fields.errors('user.phone')}" th:text="${error}"></div>
+               </div>
+            </div>
+         </div>
+
+         <div class="card mt-2 mb-2">
+            <div class="card-header">
+               <h5 th:text="#{label.login.title}">Connexion</h5>
+            </div>
+            <div class="card-body row">
+               <div class="form-group col-md-4" >
+                  <label for="email" th:text="#{label.email}">Email</label>
+                  <input id="email" type="email" th:field="${user.email}" class="form-control" th:placeholder="#{placeholder.email}">
+                  <small id="emailHelp" class="form-text text-muted">We dont reveale your Email address.</small>
+                  <div th:each="error : ${#fields.errors('user.email')}" th:error="${user.email}" th:text="${error}"></div>
+               </div>
+               <div class="form-group col-md-3">
+                  <label for="password" th:text="#{label.password}">Password</label>
+                  <input id="password" type="password" th:field="${user.password}" class="form-control">
+                  <div th:each="error : ${#fields.errors('user.password')}" th:text="${error}"></div>
+               </div>
+               <div class="form-group col-md-3">
+                  <label for="matchingPassword" th:text="#{label.matchingPassword}">Matching password</label>
+                  <input id="matchingPassword" type="password" th:field="${user.matchingPassword}" class="form-control" >
+                  <div th:each="error : ${#fields.errors('user.matchingPassword')}" th:text="${error}"></div>
+               </div>
+
+            </div>
+         </div>
+
+         <div class="card mt-2 mb-2">
+            <div class="card-header">
+               <h5 th:text="#{label.address}">Address</h5>
+            </div>
+            <div class="card-body">
+               <div class="form-group">
+                  <label for="inputAddress" th:text="#{label.street}">Street</label>
+                  <input type="text" th:field="${user.street1}" class="form-control" id="inputAddress" th:placeholder="#{placeholder.street1}">
+                  <p th:each="error : ${#fields.errors('user.street1')}" th:text="${error}"></p>
+               </div>
+               <div class="form-group">
+                  <input type="text" th:field="${user.street2}" class="form-control" th:placeholder="#{placeholder.street2}">
+                  <p th:each="error : ${#fields.errors('user.street2')}" th:text="${error}"></p>
+               </div>
+               <div class="form-group">
+                  <input type="text" th:field="${user.street3}" class="form-control" th:placeholder="#{placeholder.street3}">
+                  <p th:each="error : ${#fields.errors('user.street3')}" th:text="${error}"></p>
+               </div>
+
+               <div class="form-row">
+                  <div class="form-group col-md-5">
+                     <label for="inputCity" th:text="#{label.city}">City</label>
+                     <input type="text"th:field="${user.city}" class="form-control" id="inputCity" th:placeholder="#{placeholder.city}">
+                     <p th:each="error : ${#fields.errors('user.city')}" th:text="${error}"></p>
+                  </div>
+                  <div class="form-group col-md-4">
+                     <label for="inputState" th:text="#{label.country}">Country</label>
+                     <input type="text"th:field="${user.country}" class="form-control" id="inputState" th:placeholder="#{placeholder.country}">
+                     <p th:each="error : ${#fields.errors('user.country')}" th:text="${error}"></p>
+                  </div>
+                  <div class="form-group col-md-3">
+                     <label for="inputZip" th:text="#{label.zipCode}">Zip code</label>
+                     <input type="text" th:field="${user.zipCode}" class="form-control" id="inputZip" th:placeholder="#{placeholder.zipCode}">
+                     <p th:each="error : ${#fields.errors('user.zipCode')}" th:text="${error}"></p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </form>
+
+
+   <footer th:replace="~{fragments/footer :: footer}">&copy; 2019 Escalade</footer>
+</div>
+</body>
+</html>

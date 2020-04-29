@@ -1,0 +1,48 @@
+REPOSITORY                TAG                  IMAGE ID            CREATED             SIZE
+zuul-server               1.0                  d0830a8bbb51        18 minutes ago      198MB
+pedsf1968/zuul-server     1.0                  d0830a8bbb51        18 minutes ago      198MB
+web-api                   1.0                  f82b167bdde4        41 minutes ago      242MB
+pedsf1968/web-api         1.0                  f82b167bdde4        41 minutes ago      242MB
+<none>                    <none>               adfd3b112e65        41 minutes ago      190MB
+user-api                  1.0                  dbc51340c06a        About an hour ago   265MB
+pedsf1968/user-api        1.0                  dbc51340c06a        About an hour ago   265MB
+<none>                    <none>               b28dadbf8097        About an hour ago   197MB
+media-api                 1.0                  4cf485fbc1bd        2 hours ago         216MB
+pedsf1968/media-api       1.0                  4cf485fbc1bd        2 hours ago         216MB
+<none>                    <none>               cd137ffb9634        2 hours ago         171MB
+pedsf1968/mail-api        1.0                  a220cf6a09eb        2 hours ago         240MB
+mail-api                  1.0                  a220cf6a09eb        2 hours ago         240MB
+<none>                    <none>               bbfe8e588827        2 hours ago         187MB
+library-api               1.0                  699565dc730e        3 hours ago         265MB
+pedsf1968/library-api     1.0                  699565dc730e        3 hours ago         265MB
+<none>                    <none>               7cb355f94ef3        3 hours ago         197MB
+pedsf1968/eureka-server   1.0                  992b61090dfe        3 hours ago         208MB
+eureka-server             1.0                  992b61090dfe        3 hours ago         208MB
+<none>                    <none>               48a3af796f15        3 hours ago         168MB
+config-server             1.0                  af1cdefb4b51        3 hours ago         170MB
+pedsf1968/config-server   1.0                  af1cdefb4b51        3 hours ago         170MB
+<none>                    <none>               2b35081c6116        3 hours ago         149MB
+batch                     1.0                  74fef151b6fe        4 hours ago         214MB
+pedsf1968/batch           1.0                  74fef151b6fe        4 hours ago         214MB
+<none>                    <none>               430f75aefe43        4 hours ago         171MB
+<none>                    <none>               5eaf42e8f8ff        4 hours ago         214MB
+<none>                    <none>               a54325833f5f        4 hours ago         171MB
+<none>                    <none>               b6c231e5f894        4 hours ago         214MB
+<none>                    <none>               bca532b33f5c        4 hours ago         171MB
+<none>                    <none>               ef3a6aeab4eb        5 hours ago         225MB
+<none>                    <none>               3ba2386c254a        5 hours ago         225MB
+<none>                    <none>               fc07d4b599a3        5 hours ago         176MB
+<none>                    <none>               33ecf79527f3        6 hours ago         116MB
+<none>                    <none>               5c8e0c00b87b        8 hours ago         208MB
+<none>                    <none>               5c82325cbab1        8 hours ago         170MB
+<none>                    <none>               eb65eca6437b        8 hours ago         271MB
+<none>                    <none>               dc8d5e627767        9 hours ago         249MB
+<none>                    <none>               0666351f7b80        9 hours ago         272MB
+<none>                    <none>               12efe93c33c3        10 hours ago        214MB
+pedsf1968/mail-api        <none>               127219d4d595        22 hours ago        249MB
+pedsf1968/web-api         <none>               25e46f139b17        23 hours ago        242MB
+pedsf1968/media-api       <none>               1078eba34af3        26 hours ago        225MB
+pedsf1968/zuul-server     <none>               b794213b24e1        2 days ago          198MB
+postgres                  alpine               ecb176ff304a        4 weeks ago         151MB
+openjdk                   8-jdk-alpine         a3562aa0b991        11 months ago       105MB
+maven                     3.5.2-jdk-8-alpine   293423a981a7        2 years ago         116MB

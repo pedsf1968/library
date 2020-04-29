@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html lang="en"  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<body>
+   <div class="card mt-2 mb-2" th:if="${user}!=null" th:fragment="address">
+      <div class="card-header">
+         <h5 th:text="#{label.address}">Address</h5>
+      </div>
+      <div class="card-body">
+         <div class="form-group">
+            <input type="text" th:field="${user.street1}" class="form-control" id="inputAddress" th:placeholder="#{placeholder.street1}">
+            <p th:each="error : ${#fields.errors('user.street1')}" th:text="${error}"></p>
+         </div>
+         <div class="form-group">
+            <input type="text" th:field="${user.street2}" class="form-control" th:placeholder="#{placeholder.street2}">
+            <p th:each="error : ${#fields.errors('user.street2')}" th:text="${error}"></p>
+         </div>
+         <div class="form-group">
+            <input type="text" th:field="${user.street3}" class="form-control" th:placeholder="#{placeholder.street3}">
+            <p th:each="error : ${#fields.errors('user.street3')}" th:text="${error}"></p>
+         </div>
+
+         <div class="form-row">
+            <div class="form-group col-md-5">
+               <label for="inputCity" th:text="#{label.city}">City</label>
+               <input type="text"th:field="${user.city}" class="form-control" id="inputCity" th:placeholder="#{placeholder.city}">
+               <p th:each="error : ${#fields.errors('user.city')}" th:text="${error}"></p>
+            </div>
+            <div class="form-group col-md-4">
+               <label for="inputState" th:text="#{label.country}">Country</label>
+               <input type="text"th:field="${user.country}" class="form-control" id="inputState" th:placeholder="#{placeholder.country}">
+               <p th:each="error : ${#fields.errors('user.country')}" th:text="${error}"></p>
+            </div>
+            <div class="form-group col-md-3">
+               <label for="inputZip" th:text="#{label.zipCode}">Zip code</label>
+               <input type="text" th:field="${user.zipCode}" class="form-control" id="inputZip" th:placeholder="#{placeholder.zipCode}">
+               <p th:each="error : ${#fields.errors('user.zipCode')}" th:text="${error}"></p>
+            </div>
+         </div>
+      </div>
+   </div>
+</body>

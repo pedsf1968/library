@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html lang="en"  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<body>
+
+<div th:fragment="about">
+   <p> Information system project for the library of a big city. </p>
+   <p> This RELEASE consists of the WEB application for users and a batch which performs reminders. </p>
+</div>
+
+<div th:fragment="howto">
+   <p>Any user can consult the different media present in the library. </p>
+   <p>There are four different types of media: books, games, music and video </p>
+   <p>A user can register to become a member and borrow media </p>
+   <p>A member can view their loans </p>
+   <p>A member can reserve a media in order to be able to remove and borrow it </p>
+   <p>A member can extend his loan when it expires </p>
+   <p>A reminder email is sent for each delay. </p>
+</div>
+
+<div th:fragment="architecture">
+   <H2>MEDIA</H2>
+   <p> This is the generic type of what can be borrowed. </p>
+   <p> It is characterized by: </P>
+   <ul style = "list-style-type: disc;">
+      <li>A barcode </li>
+      <li>A title </li>
+      <li>A publication date</li>
+      <li>A stock</li>
+      <li>A quantity left </li>
+   </ul>
+   <H2>BOOK</H2>
+   <p> This is the derived type for managing books. </p>
+   <p> It is further characterized by: </P>
+   <ul style = "list-style-type: disc;">
+      <li> An ISBN code </li>
+      <li> An author </li>
+      <li> An editor </li>
+      <li> A type </li>
+      <li> A format </li>
+      <li> A number of pages </li>
+      <li> A summary </li>   </ul>
+   <H2>GAME</H2>
+   <p> This is the derived type for managing books. </p>
+      <p> It is further characterized by: </P>
+      <ul style = "list-style-type: disc;">
+      <li>Un edotor</li>
+      <li>A type</li>
+      <li>A format</li>
+      <li>The PEGI code</li>
+      <li>The link to the teaser</li>
+      <li>Asummary</li>
+   </ul>
+   <H2>MUSIC</H2>
+   <p> This is the derived type for managing books. </p>
+      <p> It is further characterized by: </P>
+      <ul style = "list-style-type: disc;">
+      <li>An author</li>
+      <li>A composer</li>
+      <li>An interpreter</li>
+      <li>The duration</li>
+      <li>A type</li>
+      <li>A format</li>
+      <li>The link to the clip of one song</li>
+   </ul>
+   <H2>VIDEO</H2>
+   <p> This is the derived type for managing books. </p>
+      <p> It is further characterized by: </P>
+      <ul style = "list-style-type: disc;">
+      <li>A director</li>
+      <li>The duration</li>
+      <li>A type</li>
+      <li>A format</li>
+      <li>The image quality</li>
+      <li>The audio quality</li>
+      <li>The audience type</li>
+      <li>The link to the teaser</li>
+      <li>A summary</li>
+      <li>The actors list</li>
+   </ul>
+</div>
+</body>

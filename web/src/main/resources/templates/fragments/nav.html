@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html lang="en"  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<body>
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" th:fragment="nav">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+         <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+               <a class="btn btn-lg" th:href="@{/}" ><em>Library</em></a>
+            </li>
+            <li class="nav-item active">
+               <a class="btn btn-lg" th:href="@{/books}" th:text="#{label.books}">Books</a>
+            </li>
+            <li class="nav-item active">
+               <a class="btn btn-lg" th:href="@{/videos}" th:text="#{label.videos}">Videos</a>
+            </li>
+            <li class="nav-item active">
+               <a class="btn btn-lg" th:href="@{/musics}" th:text="#{label.musics}">Musics</a>
+            </li>
+            <li class="nav-item active">
+               <a class="btn btn-lg" th:href="@{/games}" th:text="#{label.games}">Games</a>
+            </li>
+         </ul>
+         <ul class="navbar-nav ml-auto">
+            <li sec:authorize="!isAuthenticated()">
+                  <a class="fas fa-sign-in-alt btn btn-lg align-right" th:href="@{/login}"  th:text="' ' +  #{label.login}">Sign In</a>
+                  <a class="fas fa-sign-in-alt btn btn-lg" th:href="@{/user/new}" onclick="$('#form').submit();"  th:text="' ' +  #{label.registration}">Sign Up</a>
+            </li>
+
+            <li sec:authorize="isAuthenticated()">
+               <a class="btn btn-lg active align-right" th:href="@{/borrowings}"  th:text="#{label.myList}">My Borrowing List</a>
+               <a class="btn btn-lg active align-right" th:href="@{/user/edit/}"  th:text="#{label.myAccount}">My account</a>
+               <a class="fas fa-sign-out-alt btn btn-lg active" th:href="@{/logout}"  th:text="' ' +  #{label.logout}">Logout</a>
+            </li>
+         </ul>
+      </div>
+   </nav>
+</body>
+</html>

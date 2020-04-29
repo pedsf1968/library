@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<head th:replace="~{fragments/head :: head}"></head>
+<body>
+<div class="container-fluid page">
+   <nav th:replace="~{fragments/nav :: nav}"></nav>
+
+   <header class="jumbotron">
+      <div class="row">
+         <div class="col-sm my-auto">
+            <H1  class="display-4 float-left" th:text="${video.title}">Title</H1>
+         </div>
+         <div class="col-sm my-auto">
+            <a class="btn btn-primary mb-2 ml-2 float-right" th:href="@{/videos}" th:text="#{label.back}">Back</a>
+            <a th:if="${canBorrow}" class="btn btn-primary mb-2 ml-2 float-right" th:href="@{/borrowing/{videoId}(videoId=${video.id})}" th:text="#{label.setAside}">Book</a>
+         </div>
+      </div>
+   </header>
+
+   <div class="row mx-auto">
+      <div class="card col-md-3 col-sm-6 mx-auto">
+         <div class="card-header row">
+            <h5 th:text="#{label.information}"></h5>
+         </div>
+         <div class="card-body center">
+            <img class="img-fluid" th:src="${@environment.getProperty('zuul.url') + 'media-api/images/VIDEO/' + video.id}" alt="photo"/>
+         </div>
+         <div class="card-footer row">
+            <div class="input-group">
+               <div class="input-group-prepend mb-2">
+                  <div class="input-group-text" th:text="#{label.type}">Type</div>
+               </div>
+               <span class="form-control" th:text="${video.type}">Type</span>
+            </div>
+
+            <div class="input-group">
+               <div class="input-group-prepend mb-2">
+                  <div class="input-group-text" th:text="#{label.format}">Format</div>
+               </div>
+               <span class="form-control" th:text="${video.format}">Format</span>
+            </div>
+
+            <div class="input-group">
+               <div class="input-group-prepend mb-2">
+                  <div class="input-group-text" th:text="#{label.stock}">Stock</div>
+               </div>
+               <span class="form-control" th:text="${video.remaining}"> Remaining </span>
+            </div>
+         </div>
+      </div>
+
+
+      <div class="card col-md-3 col-sm-6 mx-auto">
+         <div class="card-header row">
+            <h5 th:text="#{label.summary}">Summary</h5>
+         </div>
+         <div class="card-body">
+            <div>
+               <p th:text="${video.summary}">Summary</p>
+            </div>
+         </div>
+
+         <div class="card-footer row">
+            <div class="input-group">
+               <div class="input-group-prepend mb-2">
+                  <div class="input-group-text" th:text="#{label.audience}">Audience</div>
+               </div>
+               <span class="form-control" th:text="${video.audience}">Audience</span>
+            </div>
+            <div class="input-group mb-2">
+               <textarea class="form-control" rows="2" th:text="${video.image}" readonly>Image</textarea>
+            </div>
+            <div class="input-group">
+               <textarea class="form-control" rows="2" th:text="${video.audio}" readonly>Audio</textarea>
+            </div>
+         </div>
+      </div>
+
+
+
+      <div class="card col-md-6 col-sm-12 mx-auto">
+         <div class="card-header row">
+            <h5 th:text="#{label.trailer}">Trailer</h5>
+         </div>
+         <div class="card-body center">
+            <iframe class="container-fluid" th:src="${video.url + '?autoplay=0'}" style="height: 100%;">  </iframe>
+         </div>
+      </div>
+   </div>
+
+   <div class="row mx-auto endpage">
+      <div class="card col-md-3 col-sm-6 mx-auto">
+         <div class="card-header row">
+            <div class="col-sm my-auto">
+               <h5 th:text="${video.director.firstName} + ' ' + ${video.director.lastName}"></h5>
+            </div>
+            <div class="col-sm my-auto">
+               <a class="btn btn-primary mb-2 float-right"th:href="${video.director.url}" target="_blank"  th:text="#{label.info}">Informations</a>
+            </div>
+         </div>
+         <div class="card-body">
+            <img class="img-fluid" th:src="${video.director.photoUrl}" alt=""/>
+         </div>
+      </div>
+
+      <div class="card col-md-3 col-sm-6 mx-auto" th:each="actor : ${video.actors}">
+         <div class="card-header row">
+            <div class="col-sm my-auto">
+               <h5 th:text="${actor.firstName} + ' ' + ${actor.lastName}">Actor name</h5>
+            </div>
+            <div class="col-sm my-auto">
+               <a class="btn btn-primary mb-2 float-right"th:href="${actor.url}" target="_blank"  th:text="#{label.info}">Informations</a>
+            </div>
+         </div>
+         <div class="card-body">
+            <img class="img-fluid" th:src="${actor.photoUrl}" alt=""/>
+         </div>
+      </div>
+   </div>
+</div>
+
+   <footer th:replace="~{fragments/footer :: footer}">&copy; 2020 La Grande Librarie</footer>
+</body>
+</html>

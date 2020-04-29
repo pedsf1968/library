@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="~{fragments/head :: head}"></head>
+<body>
+<div class="container-fluid">
+   <nav th:replace="~{fragments/nav :: nav}"></nav>
+   <header>
+   </header>
+
+   <section class="card bg-dark">
+      <img class="card-img" th:src="@{/images/background.png}" alt="photo"/>
+      <div class="card-img-overlay">
+         <h1 class="card-header" th:text="#{greeting}">Hello! Welcome on our Website!</h1>
+      </div>
+   </section>
+
+   <footer th:insert="~{fragments/footer :: footer}"></footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/head :: head}"></head>
+<body>
+<div class="container-fluid">
+   <nav th:replace="~{fragments/nav :: nav}"></nav>
+
+   <header class="jumbotron">
+      <div class="row">
+         <div class="col-sm">
+            <H1 class="display-4 float-left" th:text="#{title.account}">Account</H1>
+         </div>
+         <div class="col-sm my-auto">
+            <button form="registration" type="submit" class="btn btn-primary float-right" th:text="#{label.submit}">Submit</button>
+         </div>
+      </div>
+   </header>
+
+   <section class="endpage">
+      <form class="col-md-6 mx-auto" id="registration" action="#" th:action="@{/user/update/{id}(id=${user.id})}"  method="POST" enctype="utf8">
+         <input type="hidden"  th:field="${user.id}">
+         <input type="hidden"  th:field="${user.password}">
+         <input type="hidden"  th:field="${user.matchingPassword}">
+         <input type="hidden"  th:field="${user.photoLink}">
+         <input type="hidden"  th:field="${user.status}">
+         <input type="hidden"  th:field="${user.counter}">
+         <div class="card mt-2 mb-2">
+            <div class="card-header">
+               <h5 th:text="#{label.information}">Information</h5>
+            </div>
+            <div class="card-body row">
+               <div class="col-md-4 mb-3">
+                  <label for="firstName" th:text="#{label.firstName}">First name</label>
+                  <input id="firstName" type="text" th:field="${user.firstName}" class="form-control" th:placeholder="#{placeholder.firstName}">
+                  <span th:if="${#fields.hasErrors('user.firstName')}" th:errors="${user.firstName}">Must have name</span>
+               </div>
+               <div class="col-md-4 mb-3">
+                  <label for="lastName" th:text="#{label.lastName}">Last name</label>
+                  <input id="lastName" type="text" th:field="${user.lastName}" class="form-control" th:placeholder="#{placeholder.lastName}">
+                  <div th:each="error : ${#fields.errors('user.lastName')}" th:error="${user.lastName}" th:text="${error}"></div>
+               </div>
+         </div>
+
+         <div th:object="${address}" th:replace="~{fragments/address :: address}"></div>
+
+         <div class="card mt-2 mb-2">
+            <div class="card-header">
+               <h5 th:text="#{label.login.title}">Connection</h5>
+            </div>
+            <div class="card-body row">
+               <div class="form-group col-md-6" >
+                  <label for="email" th:text="#{label.email}">Email</label>
+                  <input id="email" type="email" th:field="${user.email}" class="form-control" th:placeholder="#{placeholder.email}">
+                  <small id="emailHelp" class="form-text text-muted">We dont reveale your Email address.</small>
+                  <div th:each="error : ${#fields.errors('user.email')}" th:error="${user.email}" th:text="${error}"></div>
+               </div>
+               <div class="form-group col-md-3">
+                  <label for="phone" th:text="#{label.phone}">Phone</label>
+                  <input id="phone" type="text" th:field="${user.phone}" class="form-control" th:placeholder="#{placeholder.phone}">
+                  <div th:each="error : ${#fields.errors('user.phone')}" th:text="${error}"></div>
+               </div>
+               <div class="mx-auto my-auto">
+                  <a class="btn btn-primary mb-2" th:href="@{/user/password/edit/{id}(id=${user.id})}" th:text="#{label.password}">Change password</a>
+               </div>
+            </div>
+         </div>
+      </form>
+   </section>
+
+   <footer th:replace="~{fragments/footer :: footer}">&copy; 2019 Escalade</footer>
+</div>
+</body>
+</html>

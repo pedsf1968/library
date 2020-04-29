@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="~{fragments/head :: head}"></head>
+<body>
+<div class="container-fluid">
+   <nav th:replace="~{fragments/nav :: nav}"></nav>
+
+   <header class="jumbotron">
+      <div class="row">
+         <div class="col-sm">
+            <H1  class="display-4 float-left" th:text="#{title.help}">Help</H1>
+         </div>
+      </div>
+   </header>
+
+   <div class="col-md-8 mx-auto">
+      <div class="card mt-2 mb-2">
+         <div class="card-header">
+            <h1 th:text="#{label.about}"></h1>
+         </div>
+         <div class="card-body" th:if="__${#locale}__=='fr'" th:insert="~{help/help-fr :: about}"></div>
+         <div class="card-body" th:if="__${#locale}__=='en'" th:insert="~{help/help-en :: about}"></div>
+      </div>
+
+      <div class="card mt-2 mb-2">
+         <div class="card-header">
+            <h1 th:text="#{label.howto}"></h1>
+         </div>
+         <div class="card-body" th:if="__${#locale}__=='fr'" th:insert="~{help/help-fr :: howto}"></div>
+         <div class="card-body" th:if="__${#locale}__=='en'" th:insert="~{help/help-en :: howto}"></div>
+      </div>
+
+      <div class="card mt-2 mb-2">
+         <div class="card-header">
+            <h1 th:text="#{label.architecture}"></h1>
+         </div>
+         <div class="card-body" th:if="__${#locale}__=='fr'" th:insert="~{help/help-fr :: architecture}"></div>
+         <div class="card-body" th:if="__${#locale}__=='en'" th:insert="~{help/help-en :: architecture}"></div>
+      </div>
+
+   </div>
+
+   <footer th:insert="~{fragments/footer :: footer}"></footer>
+</div>
+</body>
+</html>
