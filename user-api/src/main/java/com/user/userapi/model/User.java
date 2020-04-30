@@ -22,7 +22,7 @@ public class User implements Serializable {
    static final int LASTNAME_MIN = 2;
    static final int LASTNAME_MAX = 50;
    static final int PASSWORD_MIN = 4;
-   static final int PASSWORD_MAX = 50;
+   static final int PASSWORD_MAX = 255;
    static final int EMAIL_MIN = 4;
    static final int EMAIL_MAX = 50;
    static final String EMAIL_REGEXP = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
@@ -68,8 +68,7 @@ public class User implements Serializable {
    @Column(name = "phone", length = EMAIL_MAX)
    private String phone;
 
-   @NotNull
-   @Column(name = "photo_url", length = PHOTO_MAX, columnDefinition = "DEFAULT NULL")
+   @Column(name = "photo_url", length = PHOTO_MAX)
    private String photoLink;
 
    @Column(name = "status", length = STATUS_MAX)
@@ -103,9 +102,8 @@ public class User implements Serializable {
    @Column(name = "city", length = CITY_MAX)
    private String city;
 
-   @NotNull
-   @Column(name = "country", length = COUNTRY_MAX, columnDefinition = "DEFAULT 'FRANCE'")
-   private String country;
+   @Column(name = "country", length = COUNTRY_MAX)
+   private String country = "FRANCE";
 
    public User() {
    }
