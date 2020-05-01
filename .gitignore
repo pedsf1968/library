@@ -1,3 +1,16 @@
 ### Remmove .idea
 .idea
 
+### Remove batch files
+*.bat
+
+## Remove all modules
+batch/
+config-server/
+eureka-server/
+library-api/
+mail-api/
+media-api/
+user-api/
+web/
+zuul-server/

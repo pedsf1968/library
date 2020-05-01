@@ -58,12 +58,12 @@
                   <small id="emailHelp" class="form-text text-muted">We dont reveale your Email address.</small>
                   <div th:each="error : ${#fields.errors('user.email')}" th:error="${user.email}" th:text="${error}"></div>
                </div>
-               <div class="form-group col-md-3">
+               <div class="form-group col-md-4">
                   <label for="password" th:text="#{label.password}">Password</label>
                   <input id="password" type="password" th:field="${user.password}" class="form-control">
                   <div th:each="error : ${#fields.errors('user.password')}" th:text="${error}"></div>
                </div>
-               <div class="form-group col-md-3">
+               <div class="form-group col-md-4">
                   <label for="matchingPassword" th:text="#{label.matchingPassword}">Matching password</label>
                   <input id="matchingPassword" type="password" th:field="${user.matchingPassword}" class="form-control" >
                   <div th:each="error : ${#fields.errors('user.matchingPassword')}" th:text="${error}"></div>
