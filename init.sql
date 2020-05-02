@@ -377,14 +377,14 @@ INSERT INTO public.book (author_id, editor_id, format, isbn, pages, summary, typ
 -- Data for Name: borrowing; Type: TABLE DATA; Schema: public; Owner: Library_Api
 --
 
-INSERT INTO public.borrowing (id, borrowing_date, extended, media_id, return_date, user_id) VALUES (1, '2020-04-10', 0, 1, NULL, 1);
-INSERT INTO public.borrowing (id, borrowing_date, extended, media_id, return_date, user_id) VALUES (2, '2020-04-15', 0, 1, NULL, 2);
-INSERT INTO public.borrowing (id, borrowing_date, extended, media_id, return_date, user_id) VALUES (3, '2020-04-20', 3, 1, NULL, 3);
+INSERT INTO public.borrowing (id, borrowing_date, extended, media_id, return_date, user_id) VALUES (1, '2020-03-30', 0, 1, NULL, 1);
 INSERT INTO public.borrowing (id, borrowing_date, extended, media_id, return_date, user_id) VALUES (4, '2020-04-10', 0, 2, NULL, 1);
+INSERT INTO public.borrowing (id, borrowing_date, extended, media_id, return_date, user_id) VALUES (7, '2020-04-20', 0, 3, NULL, 1);
+INSERT INTO public.borrowing (id, borrowing_date, extended, media_id, return_date, user_id) VALUES (2, '2020-03-30', 0, 1, NULL, 2);
 INSERT INTO public.borrowing (id, borrowing_date, extended, media_id, return_date, user_id) VALUES (5, '2020-04-15', 2, 2, NULL, 2);
-INSERT INTO public.borrowing (id, borrowing_date, extended, media_id, return_date, user_id) VALUES (6, '2020-04-20', 0, 2, NULL, 3);
-INSERT INTO public.borrowing (id, borrowing_date, extended, media_id, return_date, user_id) VALUES (7, '2020-04-10', 0, 3, NULL, 1);
-INSERT INTO public.borrowing (id, borrowing_date, extended, media_id, return_date, user_id) VALUES (8, '2020-04-15', 0, 3, NULL, 2);
+INSERT INTO public.borrowing (id, borrowing_date, extended, media_id, return_date, user_id) VALUES (8, '2020-04-20', 0, 3, NULL, 2);
+INSERT INTO public.borrowing (id, borrowing_date, extended, media_id, return_date, user_id) VALUES (3, '2020-03-30', 1, 1, NULL, 3);
+INSERT INTO public.borrowing (id, borrowing_date, extended, media_id, return_date, user_id) VALUES (6, '2020-04-10', 0, 2, NULL, 3);
 INSERT INTO public.borrowing (id, borrowing_date, extended, media_id, return_date, user_id) VALUES (9, '2020-04-20', 0, 8, NULL, 3);
 
 

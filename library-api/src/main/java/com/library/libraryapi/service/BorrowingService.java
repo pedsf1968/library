@@ -297,21 +297,23 @@ public class BorrowingService implements GenericService<BorrowingDTO, Borrowing,
       }
 
       // increase extension
-      Integer extension = 1;
+      Integer extension = 0;
 
       if(borrowing.getExtended() != null) {
-         extension += borrowing.getExtended();
+         extension = borrowing.getExtended();
       }
 
-      borrowing.setExtended(extension);
+      if(extension<maxExtention) {
+         borrowing.setExtended(++extension);
 
-      // increase borrowing date
-      Date date = borrowing.getBorrowingDate();
-      date = DateUtils.addDays(date, daysOfDelay);
-      borrowing.setBorrowingDate(date);
+         // increase borrowing date
+         Date date = borrowing.getBorrowingDate();
+         date = DateUtils.addDays(date, daysOfDelay);
+         borrowing.setBorrowingDate(date);
 
-      // delete borrowing
-      borrowing = borrowingRepository.save(borrowing);
+         // delete borrowing
+         borrowing = borrowingRepository.save(borrowing);
+      }
 
       return entityToDTO(borrowing);
    }
