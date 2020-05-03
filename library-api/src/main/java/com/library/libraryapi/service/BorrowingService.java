@@ -242,16 +242,15 @@ public class BorrowingService implements GenericService<BorrowingDTO, Borrowing,
       UserDTO userDTO = userApiProxy.findUserById(userId);
 
       //increase the Media quantity
-      int quantityRemaining = mediaService.quantityRemaining(mediaId);
-      mediaService.updateQuantityRemaining(mediaId, quantityRemaining+1);
+      int quantityRemaining = mediaService.quantityRemaining(mediaId) + 1;
+      mediaService.updateQuantityRemaining(mediaId, quantityRemaining);
 
       // increase user counter
-      int counter = userDTO.getCounter();
-      userDTO.setCounter(counter+1);
-      userApiProxy.updateUser(userDTO.getId(),userDTO);
+      int counter = userDTO.getCounter() - 1;
+      userApiProxy.updateUserCounter(userId,counter);
 
-      // delete borrowing
-      borrowingRepository.delete(borrowing);
+      borrowing.setReturnDate(new Date());
+      borrowingRepository.save(borrowing);
 
       return entityToDTO(borrowing);
    }
