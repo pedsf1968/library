@@ -36,7 +36,7 @@
 	<!--                                                           PROPERTIES -->
 	<!-- ==================================================================== -->
 	<properties>
-		<commons-io.version>2.6</commons-io.version>
+		<commons-io.version>2.7</commons-io.version>
 		<jasypt-spring-boot-starter.version>2.0.0</jasypt-spring-boot-starter.version>
 		<java.version>1.8</java.version>
 		<lombok.version>1.18.12</lombok.version>
