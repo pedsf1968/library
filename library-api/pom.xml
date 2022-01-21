@@ -44,7 +44,7 @@
 	<!--                                                           PROPERTIES -->
 	<!-- ==================================================================== -->
 	<properties>
-		<h2.version>1.4.200</h2.version>
+		<h2.version>2.1.210</h2.version>
 		<jasypt-spring-boot-starter.version>2.0.0</jasypt-spring-boot-starter.version>
 		<java.version>1.8</java.version>
 		<jboss.version>0.1.0</jboss.version>
