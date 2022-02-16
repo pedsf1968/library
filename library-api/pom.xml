@@ -50,7 +50,7 @@
 		<jboss.version>0.1.0</jboss.version>
 		<lombok.version>1.18.12</lombok.version>
 		<modelmapper-spring.version>2.3.0</modelmapper-spring.version>
-		<postgresql.version>42.2.11</postgresql.version>
+		<postgresql.version>42.3.3</postgresql.version>
 		<spring-boot-admin.version>2.2.1</spring-boot-admin.version>
 		<spring-cloud.version>Hoxton.SR3</spring-cloud.version>
 		<springboot-starter.version>2.2.6.RELEASE</springboot-starter.version>
